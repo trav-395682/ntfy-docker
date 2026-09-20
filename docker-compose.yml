@@ -5,7 +5,9 @@ services:
     command:
       - serve
     environment:
-      - TZ=Australia/Brisbane    # desired timezone
+      TZ: ${TZ}    # desired timezone
+      NTFY_BASE_URL: ${Base_URL} # custom URL for the ntfy server
+      NTFY_BEHIND_PROXY: true
     user: 1000:1000 # user and group id for non-root access
     volumes:
       - ./var/cache/ntfy:/var/cache/ntfy # added "." at start so that all folders and files are within the docker folder
