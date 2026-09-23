@@ -10,8 +10,8 @@ services:
       NTFY_BEHIND_PROXY: true
     user: 1000:1000 # user and group id for non-root access
     volumes:
-      - ./var/cache/ntfy:/var/cache/ntfy # added "." at start so that all folders and files are within the docker folder
-      - ./etc/ntfy:/etc/ntfy # added "." at start so that all folders and files are within the docker folder
+      - ./cache:/var/cache/ntfy # added "." at start so that all folders and files are within the docker folder
+      - ./config:/etc/ntfy # added "." at start so that all folders and files are within the docker folder
     ports:
       - 8080:80 # port 80 already in use. Binding to different port
     healthcheck: # optional: remember to adapt the host:port to your environment - updated to match above port
